@@ -1,0 +1,34 @@
+package com.melim.gerenciamento_tarefa.repository;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+import com.melim.gerenciamento_tarefa.model.enums.Estado;
+import com.melim.gerenciamento_tarefa.model.repository.ItemRepository;
+
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = Replace.NONE)
+@ActiveProfiles("test")
+public class ItemRepositoryTest {
+
+
+	@Autowired
+	ItemRepository repository;
+	@Autowired
+	TestEntityManager entityManager;
+	
+	public static Item criarItem() {
+		return Item.builder()
+				.nome("Teste")
+				.prioridade(1)
+				.situacao(Estado.ATIVO).build();
+	}
+}

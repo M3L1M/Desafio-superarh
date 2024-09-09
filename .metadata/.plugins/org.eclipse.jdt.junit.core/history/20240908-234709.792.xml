@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ListaServiceTest" project="gerenciamento-tarefa" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.service.ListaServiceTest" time="1.144" displayname="ListaServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.ListaServiceTest]">
+    <testcase name="deveSalvarUmaLista" classname="com.melim.gerenciamento_tarefa.service.ListaServiceTest" time="1.144" displayname="deveSalvarUmaLista()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.ListaServiceTest]/[method:deveSalvarUmaLista()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.melim.gerenciamento_tarefa.model.repository.ListaRepository.save(Object)" because "this.repository" is null&#13;
+	at com.melim.gerenciamento_tarefa.service.ListaServiceTest.deveSalvarUmaLista(ListaServiceTest.java:30)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

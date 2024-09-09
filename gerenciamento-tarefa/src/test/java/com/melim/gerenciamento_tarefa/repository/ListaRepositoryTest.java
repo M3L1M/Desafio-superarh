@@ -2,6 +2,8 @@ package com.melim.gerenciamento_tarefa.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +46,15 @@ public class ListaRepositoryTest {
 		Lista listaInexistente = entityManager.find(Lista.class, lista.getId());
 		assertThat(listaInexistente).isNull();
 	}
+	@Test
+	public void deveBuscarUmaListaPeloID() {
+		Lista lista = criarEPersistirUmaLista();
+		
+		Optional<Lista> listaEncontrada = repository.findById(lista.getId());
+		assertThat(listaEncontrada.isPresent()).isTrue();
+	}
 	
-	public Lista criarUmaLista() {
+	public static Lista criarUmaLista() {
 		return Lista.builder().titulo("Teste").build();
 	}
 	

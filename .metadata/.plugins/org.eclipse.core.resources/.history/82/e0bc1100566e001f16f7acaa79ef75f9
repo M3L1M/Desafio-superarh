@@ -1,0 +1,38 @@
+package com.melim.gerenciamento_tarefa.service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.model.repository.ListaRepository;
+import com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest;
+import com.melim.gerenciamento_tarefa.service.impl.ListaServiceImpl;
+
+@ExtendWith(SpringExtension.class)
+public class ListaServiceTest {
+	ListaServiceImpl service;
+	
+	ListaRepository repository;
+	
+	@Test
+	public void deveSalvarUmaLista() {
+		Lista listaSalvar = ListaRepositoryTest.criarUmaLista();
+		
+		Lista listaSalvo = ListaRepositoryTest.criarUmaLista();
+		//listaSalvo.setId(1);
+		listaSalvo.setTitulo("Teste");
+		when(repository.save(listaSalvar)).thenReturn(listaSalvo);
+		
+		
+		Lista lista = service.create(listaSalvar);
+		
+		assertThat(lista.getId()).isEqualTo(listaSalvo.getId());
+		assertThat(lista.getTitulo()).isEqualTo(listaSalvo.getTitulo());
+		
+	}
+}

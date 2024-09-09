@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun ListaRepositoryTest" project="gerenciamento-tarefa" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.928" displayname="ListaRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]">
+    <testcase name="deveSalvarUmaLista" classname="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.88" displayname="deveSalvarUmaLista()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]/[method:deveSalvarUmaLista()]"/>
+    <testcase name="deveDeletarUmaLista" classname="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.044" displayname="deveDeletarUmaLista()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]/[method:deveDeletarUmaLista()]"/>
+  </testsuite>
+</testrun>

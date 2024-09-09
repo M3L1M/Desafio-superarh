@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ItemRepositoryTest" project="gerenciamento-tarefa" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest" time="1.387" displayname="ItemRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest]">
+    <testcase name="deveSalvarUmItem" classname="com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest" time="1.16" displayname="deveSalvarUmItem()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest]/[method:deveSalvarUmItem()]"/>
+    <testcase name="deveBuscarUmLancamentoPorId" classname="com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest" time="0.057" displayname="deveBuscarUmLancamentoPorId()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest]/[method:deveBuscarUmLancamentoPorId()]"/>
+    <testcase name="deveAtualizarUmItem" classname="com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest" time="0.121" displayname="deveAtualizarUmItem()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest]/[method:deveAtualizarUmItem()]"/>
+    <testcase name="deveDeletarUmLancamento" classname="com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest" time="0.026" displayname="deveDeletarUmLancamento()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ItemRepositoryTest]/[method:deveDeletarUmLancamento()]"/>
+  </testsuite>
+</testrun>
