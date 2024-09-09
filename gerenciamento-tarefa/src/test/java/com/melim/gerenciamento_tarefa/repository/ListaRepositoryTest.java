@@ -46,7 +46,7 @@ public class ListaRepositoryTest {
 	}
 	
 	public Lista criarUmaLista() {
-		return Lista.builder().id(1).titulo("Teste").build();
+		return Lista.builder().titulo("Teste").build();
 	}
 	
 	private Lista criarEPersistirUmaLista() {
