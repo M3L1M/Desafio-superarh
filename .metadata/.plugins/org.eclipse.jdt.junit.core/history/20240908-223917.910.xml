@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsuarioServiceTest.naoDeveCriarUmUsuarioComNomeVazio" project="gerenciamento-tarefa" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.service.UsuarioServiceTest" time="0.12" displayname="UsuarioServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.UsuarioServiceTest]">
+    <testcase name="naoDeveCriarUmUsuarioComNomeVazio" classname="com.melim.gerenciamento_tarefa.service.UsuarioServiceTest" time="0.12" displayname="naoDeveCriarUmUsuarioComNomeVazio()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.UsuarioServiceTest]/[method:naoDeveCriarUmUsuarioComNomeVazio()]"/>
+  </testsuite>
+</testrun>

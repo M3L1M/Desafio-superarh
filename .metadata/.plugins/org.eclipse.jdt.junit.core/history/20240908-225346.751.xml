@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun deveSalvarUmUsuario()" project="gerenciamento-tarefa" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.repository.UsuarioRepository" time="0.773" displayname="UsuarioRepository" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.UsuarioRepository]">
+    <testcase name="deveSalvarUmUsuario" classname="com.melim.gerenciamento_tarefa.repository.UsuarioRepository" time="0.773" displayname="deveSalvarUmUsuario()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.UsuarioRepository]/[method:deveSalvarUmUsuario()]"/>
+  </testsuite>
+</testrun>

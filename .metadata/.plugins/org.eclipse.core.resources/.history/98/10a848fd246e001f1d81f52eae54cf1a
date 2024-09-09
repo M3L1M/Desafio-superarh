@@ -1,0 +1,66 @@
+package com.melim.gerenciamento_tarefa.api.controller;
+
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.melim.gerenciamento_tarefa.api.dto.ItemDTO;
+import com.melim.gerenciamento_tarefa.exception.BusinessException;
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.model.enums.Estado;
+import com.melim.gerenciamento_tarefa.service.ItemService;
+import com.melim.gerenciamento_tarefa.service.ListaService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/item")
+public class ItemController {
+	
+	private final ItemService service;
+	private final ListaService listaService;
+	
+	@PostMapping("create")
+	public ResponseEntity<?> create(@RequestBody ItemDTO dto){
+		System.out.println(dto);
+		try {
+			Item item= convert(dto);
+			Optional<Lista> lista=listaService.getById(dto.getLista());
+			item.setLista(lista.get());
+			item=service.create(item);
+			return new ResponseEntity<Item>(item,HttpStatus.CREATED);
+		}catch(BusinessException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	}
+	
+	@PutMapping("update/{id}")
+	public ResponseEntity<?> update(@PathVariable Integer id,@RequestBody ItemDTO dto){
+		return null;/*service.getById(id).map(entity -> {
+			try {
+				entity.setTitulo(dto.getTitulo());
+				service.update(entity);
+				return new ResponseEntity<Lista>(HttpStatus.NO_CONTENT);
+			}catch (BusinessException e) {
+				return ResponseEntity.badRequest().body(e.getMessage());
+			}
+		}).orElseGet( () ->new ResponseEntity<String>("Lista não encontrada na base de Dados.", HttpStatus.BAD_REQUEST) );
+	*/}
+
+	private Item convert(ItemDTO dto) {
+		
+		return Item.builder().name(dto.getNome())
+				.prioridade(dto.getPrioridade())
+				.situacao(Estado.valueOf(dto.getSituacao())).build();
+	}
+	
+}

@@ -1,0 +1,20 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import com.melim.gerenciamento_tarefa.model.entity.Prioridade;
+import com.melim.gerenciamento_tarefa.service.PrioridadeService;
+
+public class PrioridadeServiceImpl implements PrioridadeService {
+
+	@Override
+	public void create(Prioridade prioridade) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(Prioridade prioridade) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

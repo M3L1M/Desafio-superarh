@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ListaRepositoryTest" project="gerenciamento-tarefa" tests="2" started="2" failures="0" errors="1" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.872" displayname="ListaRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]">
+    <testcase name="deveSalvarUmaLista" classname="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.853" displayname="deveSalvarUmaLista()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]/[method:deveSalvarUmaLista()]"/>
+    <testcase name="deveDeletarUmaLista" classname="com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest" time="0.018" displayname="deveDeletarUmaLista()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest]/[method:deveDeletarUmaLista()]">
+      <error>jakarta.persistence.EntityExistsException: detached entity passed to persist: com.melim.gerenciamento_tarefa.model.entity.Lista&#13;
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:126)&#13;
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:167)&#13;
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:173)&#13;
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:763)&#13;
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:741)&#13;
+	at org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager.persist(TestEntityManager.java:92)&#13;
+	at com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest.criarEPersistirUmaLista(ListaRepositoryTest.java:53)&#13;
+	at com.melim.gerenciamento_tarefa.repository.ListaRepositoryTest.deveDeletarUmaLista(ListaRepositoryTest.java:38)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: com.melim.gerenciamento_tarefa.model.entity.Lista&#13;
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:88)&#13;
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)&#13;
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)&#13;
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)&#13;
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:757)&#13;
+	... 7 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

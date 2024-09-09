@@ -1,0 +1,14 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import com.melim.gerenciamento_tarefa.model.entity.Usuario;
+import com.melim.gerenciamento_tarefa.service.UsuarioService;
+
+public class UsuarioServiceImpl implements UsuarioService {
+
+	@Override
+	public Usuario create(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

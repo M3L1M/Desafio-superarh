@@ -1,0 +1,7 @@
+package com.melim.gerenciamento_tarefa.service;
+
+import com.melim.gerenciamento_tarefa.model.entity.Usuario;
+
+public interface UsuarioService {
+	Usuario create(Usuario usuario);
+}

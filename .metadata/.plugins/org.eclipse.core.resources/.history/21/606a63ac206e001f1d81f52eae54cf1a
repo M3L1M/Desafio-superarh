@@ -1,0 +1,24 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.melim.gerenciamento_tarefa.model.entity.Prioridade;
+import com.melim.gerenciamento_tarefa.service.PrioridadeService;
+
+public class PrioridadeServiceImpl implements PrioridadeService {
+
+	@Override
+	@Transactional
+	public void create(Prioridade prioridade) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	@Transactional
+	public void update(Prioridade prioridade) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

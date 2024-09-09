@@ -1,0 +1,123 @@
+package com.melim.gerenciamento_tarefa.api.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.melim.gerenciamento_tarefa.api.dto.ItemDTO;
+import com.melim.gerenciamento_tarefa.exception.BusinessException;
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.model.enums.Estado;
+import com.melim.gerenciamento_tarefa.service.ItemService;
+import com.melim.gerenciamento_tarefa.service.ListaService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/item")
+public class ItemController {
+	
+	private final ItemService service;
+	private final ListaService listaService;
+	
+	@PostMapping("create/{id}")
+	public ResponseEntity<?> create(@PathVariable Integer id,@RequestBody ItemDTO dto){
+		try {
+			Item item= convert(dto);
+			Optional<Lista> lista=listaService.getById(id);
+			item.setLista(lista.get());
+			item=service.create(item);
+			return new ResponseEntity<Item>(item,HttpStatus.CREATED);
+		}catch(BusinessException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	}
+	
+	@PutMapping("update/{id}")
+	public ResponseEntity<?> update(@PathVariable Integer id,@RequestBody ItemDTO dto){
+		Item item=convert(dto);
+		return service.getById(id).map(entity -> {
+			try {
+				item.setId(entity.getId());
+				item.setLista(entity.getLista());
+				service.update(item);
+				return new ResponseEntity<Lista>(HttpStatus.NO_CONTENT);
+			}catch (BusinessException e) {
+				return ResponseEntity.badRequest().body(e.getMessage());
+			}
+		}).orElseGet( () ->new ResponseEntity<String>("Lista não encontrada na base de Dados.", HttpStatus.BAD_REQUEST) );
+	}
+	 
+	@PutMapping("update-estado/{id}")
+	public ResponseEntity<?> updateEstado(@PathVariable Integer id,@RequestBody ItemDTO dto){
+		return service.getById(id).map(entity -> {
+			try {
+				entity.setSituacao(Estado.valueOf(dto.getSituacao()));
+				
+				service.update(entity);
+				return new ResponseEntity<Lista>(HttpStatus.NO_CONTENT);
+			}catch (BusinessException e) {
+				return ResponseEntity.badRequest().body(e.getMessage());
+			}
+		}).orElseGet( () ->new ResponseEntity<String>("Lista não encontrada na base de Dados.", HttpStatus.BAD_REQUEST) );
+	}
+	
+	
+	@DeleteMapping("delete/{id}")
+	public ResponseEntity<?> delete(@PathVariable Integer id){
+		
+		return service.getById(id).map(entity -> {
+			try {
+				service.delete(entity);
+				return new ResponseEntity<Lista>(HttpStatus.NO_CONTENT);
+			}catch (BusinessException e) {
+				return ResponseEntity.badRequest().body(e.getMessage());
+			}
+		}).orElseGet( () ->new ResponseEntity<String>("Lista não encontrada na base de Dados.", HttpStatus.BAD_REQUEST) );
+	}
+	
+	public ResponseEntity<?> buscar(
+			@RequestParam(value = "lista") Integer idLista,
+			@RequestParam(value = "prioridade",required=false) Integer prioridade,
+			@RequestParam(value = "situacao",required=false) String situacao,
+			@RequestParam(value = "nome",required=false) String nome){
+		
+		Item item = new Item();
+		item.setPrioridade(prioridade);
+		item.setSituacao(Estado.valueOf(situacao));
+		item.setNome(nome);
+		
+		Optional<Lista> lista = listaService.getById(idLista); 
+		
+		if(!lista.isPresent()) {
+			return ResponseEntity.badRequest().body("Não foi possivel realizar a consulta");
+		}else {
+			item.setLista(lista.get());
+		}
+		
+		List<Item> items = service.findAll(item);
+		
+		return ResponseEntity.ok(items);
+	}
+	
+
+	private Item convert(ItemDTO dto) {
+		
+		return Item.builder().nome(dto.getNome())
+				.prioridade(dto.getPrioridade())
+				.situacao(Estado.valueOf(dto.getSituacao())).build();
+	}
+	
+}

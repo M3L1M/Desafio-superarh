@@ -1,0 +1,22 @@
+package com.melim.gerenciamento_tarefa.api.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.melim.gerenciamento_tarefa.service.UsuarioService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/usuario")
+public class UsuarioController {
+	private final UsuarioService service;
+	
+	
+	public ResponseEntity<?> create(@RequestBody UsuarioDTO dto){
+		
+	}
+}

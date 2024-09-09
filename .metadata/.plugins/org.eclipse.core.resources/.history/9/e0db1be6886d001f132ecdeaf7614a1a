@@ -1,0 +1,5 @@
+package com.melim.gerenciamento_tarefa.service;
+
+public interface ListaService {
+
+}

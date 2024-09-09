@@ -1,0 +1,16 @@
+package com.melim.gerenciamento_tarefa.model.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Entity
+@Table(name="access_employee")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Usuario {
+	private Integer id;
+	private String nome;
+}

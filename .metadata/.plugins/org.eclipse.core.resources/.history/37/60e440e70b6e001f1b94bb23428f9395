@@ -1,0 +1,20 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.service.ListaService;
+
+public class ListaServiceImpl implements ListaService {
+
+	@Override
+	public void create(Lista lista) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(Lista lista) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

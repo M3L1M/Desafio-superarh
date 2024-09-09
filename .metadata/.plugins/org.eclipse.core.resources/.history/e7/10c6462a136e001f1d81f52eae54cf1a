@@ -1,0 +1,64 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.melim.gerenciamento_tarefa.exception.ErroValidacao;
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.model.entity.Usuario;
+import com.melim.gerenciamento_tarefa.model.repository.ListaRepository;
+import com.melim.gerenciamento_tarefa.model.repository.UsuarioRepository;
+import com.melim.gerenciamento_tarefa.service.ListaService;
+
+import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@Service
+public class ListaServiceImpl implements ListaService {
+	
+	private final ListaRepository repository;
+	private final UsuarioRepository usuarioRepository;
+	
+	@Override
+	@Transactional
+	public void create(Lista lista) {
+		validacao(lista);
+		repository.save(lista);
+	}
+
+	@Override
+	@Transactional
+	public void update(Lista lista) {
+		validacao(lista);
+		repository.save(lista);
+	}
+	
+	@Override
+	@Transactional
+	public Page<Lista> findAll(Pageable pageable, Lista lista) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	private void validacao(Lista lista) {
+		
+		if(lista.getTitulo().isEmpty()) {
+			throw new ErroValidacao("O titulo esta vazio");
+		}
+		
+		Optional<Usuario> usuario=usuarioRepository.findById(lista.getId());
+		
+		if(!usuario.isPresent()) {
+			throw new ErroValidacao("Não existe nenhum usuario com este ID");
+		}
+		
+		
+	}
+
+	
+
+}

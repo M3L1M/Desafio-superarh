@@ -1,0 +1,16 @@
+package com.melim.gerenciamento_tarefa.model.entity;
+
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+public class Prioridade {
+	private Integer id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lista")
+    private Lista lista;
+	//lista
+	//item
+	//Integer prioridade 0 a ...
+}

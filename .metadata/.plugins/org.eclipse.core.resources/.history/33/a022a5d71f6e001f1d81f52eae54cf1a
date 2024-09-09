@@ -1,0 +1,80 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.melim.gerenciamento_tarefa.exception.ErroValidacao;
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+import com.melim.gerenciamento_tarefa.model.entity.Usuario;
+import com.melim.gerenciamento_tarefa.model.repository.ListaRepository;
+import com.melim.gerenciamento_tarefa.model.repository.UsuarioRepository;
+import com.melim.gerenciamento_tarefa.service.ListaService;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@Service
+public class ListaServiceImpl implements ListaService {
+	
+	private final ListaRepository repository;
+	private final UsuarioRepository usuarioRepository;
+	
+	@Override
+	@Transactional
+	public Lista create(Lista lista) {
+		validacao(lista);
+		return repository.save(lista);
+	}
+
+	@Override
+	@Transactional
+	public void update(Lista lista) {
+		validacao(lista);
+		repository.save(lista);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Lista> findAll(Lista lista) {
+		Example example=Example.of(lista,
+				ExampleMatcher.matching()
+					.withIgnoreCase()
+					.withStringMatcher(StringMatcher.CONTAINING));
+		return repository.findAll(example);
+	}
+	
+	@Override
+	public Optional<Lista> getById(Integer id) {
+		Optional<Lista> lista=repository.findById(id);
+		if(!lista.isPresent()) {
+			throw new ErroValidacao("Não existe nenhuma lista com este ID");
+		}
+		System.out.println(lista);
+		return lista;
+	}
+	private void validacao(Lista lista) {
+		
+		if(lista.getTitulo().isEmpty()) {
+			throw new ErroValidacao("O titulo esta vazio");
+		}
+		
+		Optional<Usuario> usuario=usuarioRepository.findById(lista.getUsuario().getId());
+		
+		if(!usuario.isPresent()) {
+			throw new ErroValidacao("Não existe nenhum usuario com este ID");
+		}
+		
+		
+	}
+
+	
+
+	
+
+}

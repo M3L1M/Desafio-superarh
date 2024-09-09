@@ -1,0 +1,6 @@
+package com.melim.gerenciamento_tarefa.model.entity;
+
+public class Username {
+	private Integer id;
+	private String nome;
+}

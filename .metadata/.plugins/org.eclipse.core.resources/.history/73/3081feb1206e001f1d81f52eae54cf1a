@@ -1,0 +1,9 @@
+package com.melim.gerenciamento_tarefa.model.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.melim.gerenciamento_tarefa.model.entity.Prioridade;
+
+public interface PrioridadeRepository extends JpaRepository<Prioridade, Integer>{
+
+}

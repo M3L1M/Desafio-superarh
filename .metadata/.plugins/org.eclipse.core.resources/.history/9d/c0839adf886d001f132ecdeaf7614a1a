@@ -1,0 +1,8 @@
+package com.melim.gerenciamento_tarefa.model.enums;
+
+public enum Situacao {
+	CONCLUIDO, 
+	CANCELADO, 
+	EM_ANDAMENTO,
+	EM_ESPERA
+}

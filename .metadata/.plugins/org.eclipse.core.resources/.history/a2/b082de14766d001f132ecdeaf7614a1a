@@ -1,0 +1,27 @@
+package com.melim.gerenciamento_tarefa.model.entity;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.melim.gerenciamento_tarefa.model.enums.Situacao;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="tarefa")
+public class Tarefa {
+	private Integer id;
+	private String titulo;
+	private String descricao;
+	private LocalDateTime dataConclusao;
+	private Situacao situacao;
+}

@@ -1,0 +1,45 @@
+package com.resistores;
+
+import java.util.Scanner;
+
+public class Resistores {
+	public static void t() {
+		Scanner scanner = new Scanner(System.in);
+
+		String ohm = scanner.nextLine();
+		System.out.println(ohm.split(" ")[0]);
+	}
+
+	public static void main(String[] args) {
+		t();
+		/*Scanner scanner = new Scanner(System.in);
+
+		int ohm = scanner.nextInt();
+		System.out.println(retornar(ohm));
+
+		if (ohm < 1000) {
+			System.out.println(ohm + " ohms");
+		} else if (ohm >= 1000 && ohm < 1000000) {
+			float aux = ohm / 1000;
+			System.out.println(aux + "K ohms");
+		} else {
+			System.out.println((ohm / 1000000) + "M ohms");
+		}*/
+	}
+
+	public static String retornar(int ohm) {
+		String ohms = ohm + "";
+		String ohmsReturn = "";
+		String[] cores = {
+				// 0 1 2 3 4
+				"preto", "marrom", "vermelho", "laranja", "amarelo",
+				// 5 6 7 8 9
+				"verde", "azul", "violeta", "cinza", "branco" };
+		for (int i = 0; i < 2; i++) {
+			ohmsReturn += cores[Integer.parseInt(ohms.substring(i, i + 1))] + " ";
+		}
+		ohmsReturn += cores[ohms.length() - 2] + " ";
+
+		return ohmsReturn + "dourado";
+	}
+}

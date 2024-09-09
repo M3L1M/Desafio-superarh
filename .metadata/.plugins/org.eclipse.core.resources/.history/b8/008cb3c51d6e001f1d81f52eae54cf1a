@@ -1,0 +1,66 @@
+package com.melim.gerenciamento_tarefa.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+import com.melim.gerenciamento_tarefa.service.ItemService;
+
+import org.springframework.transaction.annotation.Transactional;
+
+public class ItemServiceImpl implements ItemService{
+
+	@Override
+	@Transactional
+	public void create(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public void update(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public List<Item> findAll(Item item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public List<Item> saveAll(List<Item> items) {
+		List<Item> itemsAdd=new ArrayList<Item>();
+		for(int i=0;i<items.size();i++) {
+			
+			Optional<Item> item=validate(items.get(i));
+			if(item.isPresent()) {
+				itemsAdd.add(item.get());
+			}
+		}
+		
+		return itemsAdd;
+		
+	}
+
+	private Optional<Item> validate(Item item) {
+		
+		if(item.getName().isEmpty()) {
+			return Optional.empty();
+		}
+		return Optional.ofNullable(item);
+	}
+
+}

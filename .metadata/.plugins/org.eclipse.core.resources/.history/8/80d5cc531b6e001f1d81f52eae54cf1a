@@ -1,0 +1,14 @@
+package com.melim.gerenciamento_tarefa.service;
+
+import java.util.List;
+
+
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+
+public interface ItemService {
+	void saveAll(List<Item> items);
+	void create(Item item);
+	void update(Item item);
+	void delete(Integer id);
+	List<Item> findAll( Item item);
+}

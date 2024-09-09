@@ -1,0 +1,10 @@
+package com.melim.gerenciamento_tarefa.model.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+import com.melim.gerenciamento_tarefa.model.entity.Lista;
+
+public interface ItemRepository extends JpaRepository<Item, Integer>{
+
+}

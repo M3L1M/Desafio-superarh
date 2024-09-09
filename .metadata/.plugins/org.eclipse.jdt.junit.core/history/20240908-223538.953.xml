@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun naoDeveCriarUmUsuario()" project="gerenciamento-tarefa" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.melim.gerenciamento_tarefa.service.UsuarioServiceTest" time="0.119" displayname="UsuarioServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.UsuarioServiceTest]">
+    <testcase name="naoDeveCriarUmUsuario" classname="com.melim.gerenciamento_tarefa.service.UsuarioServiceTest" time="0.119" displayname="naoDeveCriarUmUsuario()" uniqueid="[engine:junit-jupiter]/[class:com.melim.gerenciamento_tarefa.service.UsuarioServiceTest]/[method:naoDeveCriarUmUsuario()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.melim.gerenciamento_tarefa.model.entity.Usuario.getNome()" because "usuario" is null&#13;
+	at com.melim.gerenciamento_tarefa.service.impl.UsuarioServiceImpl.create(UsuarioServiceImpl.java:24)&#13;
+	at com.melim.gerenciamento_tarefa.service.UsuarioServiceTest.naoDeveCriarUmUsuario(UsuarioServiceTest.java:46)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

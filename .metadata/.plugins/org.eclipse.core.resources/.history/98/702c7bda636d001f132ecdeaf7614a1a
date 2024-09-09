@@ -1,0 +1,9 @@
+package com.snail;
+
+public class Snail {
+	public static void main(String[] args) {
+		int matriz[][] = new int [3][3]{{2,3,5},{1,2,3},{4,5,6};
+		
+		
+	}
+}

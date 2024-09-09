@@ -1,0 +1,13 @@
+package com.melim.gerenciamento_tarefa.service;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.melim.gerenciamento_tarefa.model.entity.Item;
+
+public interface ItemService {
+	void create(Item item);
+	void update(Item item);
+	void delete(Integer id);
+	Page<Item> findAll(Pageable pageable, Item item);
+}

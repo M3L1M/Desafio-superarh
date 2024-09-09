@@ -1,0 +1,36 @@
+package com.melim.gerenciamento_tarefa.model.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name="prioridade")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Prioridade {
+	private Integer id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lista")
+    private Lista lista;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "item")
+	private Item item;
+	
+	private Integer prioridade;
+	
+	
+	//lista
+	//item
+	//Integer prioridade 0 a ...
+}

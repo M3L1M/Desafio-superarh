@@ -1,0 +1,31 @@
+package com.melim.gerenciamento_tarefa.service;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.melim.gerenciamento_tarefa.model.entity.Usuario;
+import com.melim.gerenciamento_tarefa.model.repository.UsuarioRepository;
+import com.melim.gerenciamento_tarefa.service.impl.UsuarioServiceImpl;
+
+@ExtendWith(SpringExtension.class)
+public class UsuarioServiceTest {
+	
+	@SpyBean
+	UsuarioServiceImpl service;
+
+	@MockBean
+	UsuarioRepository repository;
+	
+	public void deveCriarUmUsuario() {
+		Usuario usuario = createUsuario();
+		Mockito.doNothing().when(service).create(Mockito.anyString());
+	}
+
+	private Usuario createUsuario() {
+		
+		return Usuario.builder().nome("Gabriel").id(1).build();
+	}
+}
